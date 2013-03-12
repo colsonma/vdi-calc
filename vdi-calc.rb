@@ -1,39 +1,25 @@
 #Something I do a lot- Jon Owings
 #VMware View and VDI Calculator 
-#require 'rubygems'
 require 'sinatra'
 require 'rubygems'
-
-vdiType = "VMware View"
-nDesktops = 1000.00
-ioSteady = 10
-conCurr = 1
-maxLC = 4
-avgRam = 2
-memRes = 0.5
-storProto = "NFS"
-userData = 2
-addStor = 4000
-baseImg	= 8
+#Samples::
+#vdiType = "VMware View"
+#nDesktops = params[:nDesktops]
+#ioSteady = 10
+#conCurr = params[:conCurr]
+#maxLC = 4
+#avgRam = 2
+#memRes = 0.5
+#storProto = "NFS"
+#userData = 2
+#addStor = 4000
+#baseImg	= 8
 ioPerBlock = 8200.00
-addDrives = 15
+#addDrives = 15
 diskPer = 15
-diskOvr = 0.91
+#diskOvr = 0.91
 
-
-
-helpers do
-  def max_con(nDesktops,conCurr)
-      @maxConCurr = @nDesktops * @conCurr
-  end
-end
-
-custIO = nDesktops * ioSteady
-numBlk = custIO / ioPerBlock 
-adjNumBlk = numBlk.ceil
-numFlash = adjNumBlk * 2
-numSAS = diskPer * adjNumBlk + addDrives
-capReq = ((avgRam * memRes) + maxLC) * nDesktops /1000
+#capReq = ((avgRam * memRes) + maxLC) * nDesktops /1000
 
 
 
@@ -47,15 +33,23 @@ end
 
 get '/calc_home' do
     @vditype=params[:vditype]
+    @avgRam=params[:avgRam]
+    @memRes=params[:memRes]
     @nDesktops=params[:nDesktops]
-    @custIO=params[:custIO]
-    @maxConCurr = max_con(@nDesktops,@ioSteady)
-    @numBlk=params[:numBlk]
-    @adjNumBlk=[:adjNumBlk]
-    @numFlash=params[:numFlash]
-    @numSAS=params[:numSAS]
-    @capReq=params[:capReq]
-		erb :calc_home 
+    @ioSteady=params[:ioSteady]
+    @custIO= @nDesktops.to_f * @ioSteady.to_f
+    @conCurr=params[:conCurr]
+    @userData=params[:userData]
+    @addStor=params[:addStor]
+    @maxConCurr = @nDesktops.to_f * (@conCurr.to_f/100)
+    @numBlk= @custIO / ioPerBlock
+    @adjNumBlk= @numBlk.ceil
+    @numFlash= @adjNumBlk * 2
+    @addStorage = @addStor.to_f / 300
+    @addDrives= @addStorage.ceil
+    @numSAS= diskPer * @adjNumBlk + @addDrives
+    @capReq= (@avgRam.to_f * @memRes.to_f + @maxLC.to_f) * @nDesktops.to_f/1000
+	erb :calc_home 
 end
 
 

@@ -6,15 +6,32 @@
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a>
 <br>
 
- Type of VDI is <%= @vditype %><br />
+ Type of VDI is <b><%= @vditype %></b><br />
  Maximum Concurrent Desktops <%= @maxConCurr %><br />
  Number of Customer IOps <%= @custIO %><br />
- Number of Building Blocks<%= @numBlk %><br />
  Number of Additional Drives needed for applications: <%= @addDrives %><br />
  Number of VDI Blocks <%= @adjNumBlk %><br />
  Number of Flash Drives needed <%= @numFlash %><br />
  Number of SAS drives <%= @numSAS %><br />
  Capacity Total Required for Linked Clones <%= @capReq %>TB
  </p>
+ Values Used:<br/>
+ VDI<%= @vditype %><br/>
+    AvgRam<%= @avgRam %><br/>
+    MemRes<%= @memRes %><br/>
+    nDesktops<%= @nDesktops %><br/>
+    IOSteady<%= @ioSteady %><br/>
+    CustIO<%= @custIO %><br/>
+    ConCurr<%= @conCurr %><br/>
+    UserData<%= @userData %><br/>
+    AddStor<%= @addStor %><br/>
+    MaxConCurr<%= @maxConCurr %><br/>
+    NumBlk<%= @numBlk %><br/>
+    AdjNumBlk<%= @adjNumBlk %><br/>
+    NumFlash<%= @numFlash %><br/>
+    AdditionalStorage<%= @addStorage %><br/>
+    AddDrives<%= @addDrives %><br/>
+    NumSAS<%= @numSAS %><br/>
+    CAPReq<%= @capReq %><br/>
  </body>
  </html>
