@@ -5,13 +5,34 @@
 <p>This calculator attempts to estimate the EMC storage needed for VMware View, Citrix PVS and MCS environments. It is based on the math
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a>
 <br>
-<form action="/hello" method="POST"
-A Greeting: <input type="text" name="greet">
-<br/>
-Your Name: <input type"text" name="name">
-<input type="submit">
+<h1>Enter Your VDI Information</h1>
+
+<form method="get" action="/calc_home">
+VDI Type:<select name="vditype">
+  <option value="VMWare View">VMware View</option>
+  <option value="Citrix PVS">Citrix PVS</option>
+  <option value="Citrix MCS">Citrix MCS</option>
+</select><br /> 
+Number of Desktops <input type="number" name="nDesktops"><br/>
+Steady Stage IOPS <input type="number" name="ioSteady"><br/>
+Concurrent User Percent (between 1-100) <input type="text" name="conCurr"><br/>
+Max size in GB of Linked CLones <input type="text" name="maxLC"><br/>
+Memory Reservation Percentage (If you don't know put 50) <input type="text" name="memRes"><br/>
+Storage Protocol <select name="storProto">
+	<option value="NFS">NFS</option>
+	<option value="FC">Fiber Channel</option>
+	</select><br/>
+Data for Each User Files (GB) <input type="text" name="userData"><br/>
+Additional Application Storage GB <input type="text" name="addStor"><br/>
+Number of Base Images <input type="text" name="baseImg"><br/>
+<input type="submit" value="Go">
 </form>
+
+<p>
+</p>
 
  </p>
  </body>
  </html>
+
+

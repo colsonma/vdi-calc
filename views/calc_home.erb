@@ -6,8 +6,15 @@
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a>
 <br>
 
-<%= @capReq %>
-
+ Type of VDI is <%= @vditype %><br />
+ Maximum Concurrent Desktops <%= @maxConCurr %><br />
+ Number of Customer IOps <%= @custIO %><br />
+ Number of Building Blocks<%= @numBlk %><br />
+ Number of Additional Drives needed for applications: <%= @addDrives %><br />
+ Number of VDI Blocks <%= @adjNumBlk %><br />
+ Number of Flash Drives needed <%= @numFlash %><br />
+ Number of SAS drives <%= @numSAS %><br />
+ Capacity Total Required for Linked Clones <%= @capReq %>TB
  </p>
  </body>
  </html>
