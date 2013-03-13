@@ -3,10 +3,11 @@ vdi-calc
 
 Ruby code to estimate virtual desktop environments
 
-Steps
--Rails Page
--Calculate Storage for View
--Calculate Storage for PVS
--Calculate Storage for MCS
+Feel free to see it running at http://vdi-calc.aws.af.cm
 
--Calculate Compute
+@jon_2vcps
+
+
+Still to do:
+Account for new arrays as the are GA'd
+Export the results to PDF or Email.
