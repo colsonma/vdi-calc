@@ -1,7 +1,6 @@
 #Something I do a lot- Jon Owings
 #VMware View and Citrix VDI Calculator 
 require 'sinatra'
-require 'erb'
 require 'rubygems'
 
 ioPerBlock = 8200.00
