@@ -1,61 +1,84 @@
 <html>
-<body>
-<h1>Welcome to the EMC VDI Calculator</h1>
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>VNX VDI Calculator</title>
 
-<p>This calculator attempts to estimate the EMC storage needed for VMware View, Citrix PVS and MCS environments. It is based on the math
+  <link rel="stylesheet" href="css/normalize.css" />
+  
+  <link rel="stylesheet" href="css/foundation.css" />
+  
+
+  <script src="js/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+<div class="row">
+  <div class="panel">
+<h1>Results VNX Calculator</h1>
+
+<p>This calculator attempts to estimate the EMC VNX storage needed for VMware View, Citrix PVS and MCS environments. It is based on the math
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a>
 <br>
 
 <table border=1>
  <tr>
- <td>Compenents</td><td>Quantity</td>
+ <td>Compenents</td><td>Quantity</td><td>Notes</td>
  </tr>
  <tr>
- <td>VNX </td><td>1</td>
+ <td><%= @vnxType %></td><td>1</td><td></td>
  </tr>
  <tr>
- <td><%= @driveType %>GB, 15k SAS Drives</td><td><%= @numSAS %></td>
+ <td><%= @driveType %>GB, 15k SAS Drives</td><td><%= @numSAS %></td><td>Includes hotspares</td>
  </tr>
  <tr>
- <td>100 GB, EFD Drives</td><td><%= @numFlash %></td>
+ <td>100 GB, EFD Drives</td><td><%= @numFlash %></td><td>Includes Hotspares and Additional Drives below</td>
  </tr>
  <tr>
- <td><%= @userDataType %>, 7.2k NL-SAS Drives</td><td><%= @totaluserDataNum %></td>
+ <td><%= @userDataType %>, 7.2k NL-SAS Drives</td><td><%= @totaluserDataNum %></td><td>Include Hotspares</td>
  </tr>
  <tr>
- <td>Data Movers</td><td><%= @dispMover %></td>
+ <td>Data Movers</td><td><%= @dispMover %></td><td>Active + One Standby</td>
+ </tr>
+  <tr>
+ <td>VNX Based on Data Movers</td><td><%= @adjvnxType %></td><td>Use this Model VNX if you are using NFS</td>
+ </tr>
+  <tr>
+ <td>Additional FAST Cache</td><td><%= @moreFlash %></td><td>Included in Total EFD</td>
+ </tr>
+   <tr>
+ <td>Additional EFD For Base Images</td><td><%= @baseFlash %></td><td>Included in Total EFD</td>
+ </tr>
+ <tr>
+ <td>License</td><td><%= @lic %></td><td></td>
  </tr>
  </table><br/>
  </p>
- Values Used:<br/>
- VDI<%= @vditype %><br/>
-    AvgRam<%= @avgRam %><br/>
-    MemRes<%= @memRes %><br/>
-    nDesktops<%= @nDesktops %><br/>
-    IOSteady<%= @ioSteady %><br/>
-    CustIO<%= @custIO %><br/>
-    ConCurr<%= @conCurr %><br/>
-    UserData<%= @userData %><br/>
-    AddStor<%= @addStor %><br/>
-    MaxConCurr<%= @maxConCurr %><br/>
-    NumBlk<%= @numBlk %><br/>
-    AdjNumBlk<%= @adjNumBlk %><br/>
-    NumFlash<%= @numFlash %><br/>
-    AddDrives<%= @addDrives %><br/>
-    NumSAS<%= @numSAS %><br/>
-    CAPReq<%= @capReq %><br/>
-    DrivesPerBlock<%= @diskPer %><br />
-    hsFlashUp=<%= @hsFlashUp %><br>
-    hsSASUp=<%= @hsSASUp %><br>
-    storProto=<%= @storProto %><br>
-     Type of VDI is <b><%= @vditype %></b><br />
- Maximum Concurrent Desktops <%= @maxConCurr %><br />
- Number of Customer IOps <%= @custIO %><br />
- Number of Additional Drives needed for applications: <%= @addDrives %><br />
- Number of VDI Blocks <%= @adjNumBlk %><br />
- Number of Flash Drives needed <%= @numFlash %><br />
- Number of SAS drives <%= @numSAS %><br />
- Capacity Total Required for Linked Clones <%= @capReq %>TB
- <br />
- </body>
- </html>
+  <br />
+ </div>
+</div>
+<script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +'.js><\/script>')
+  </script>
+  <script src="js/foundation/foundation.js"></script>
+  <script src="js/foundation/foundation.alerts.js"></script>
+  <script src="js/foundation/foundation.clearing.js"></script>
+  <script src="js/foundation/foundation.cookie.js"></script>
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  <script src="js/foundation/foundation.forms.js"></script>
+  <script src="js/foundation/foundation.joyride.js"></script>
+  <script src="js/foundation/foundation.magellan.js"></script>
+  <script src="js/foundation/foundation.orbit.js"></script>
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  <script src="js/foundation/foundation.reveal.js"></script>
+  <script src="js/foundation/foundation.section.js"></script>
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  <script src="js/foundation/foundation.topbar.js"></script>
+  <script>
+  $(document).foundation();
+  </script>	
+</body>
+</html
+
+
