@@ -6,14 +6,26 @@
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a>
 <br>
 
- Type of VDI is <b><%= @vditype %></b><br />
- Maximum Concurrent Desktops <%= @maxConCurr %><br />
- Number of Customer IOps <%= @custIO %><br />
- Number of Additional Drives needed for applications: <%= @addDrives %><br />
- Number of VDI Blocks <%= @adjNumBlk %><br />
- Number of Flash Drives needed <%= @numFlash %><br />
- Number of SAS drives <%= @numSAS %><br />
- Capacity Total Required for Linked Clones <%= @capReq %>TB
+<table border=1>
+ <tr>
+ <td>Compenents</td><td>Quantity</td>
+ </tr>
+ <tr>
+ <td>VNX </td><td>1</td>
+ </tr>
+ <tr>
+ <td><%= @driveType %>GB, 15k SAS Drives</td><td><%= @numSAS %></td>
+ </tr>
+ <tr>
+ <td>100 GB, EFD Drives</td><td><%= @numFlash %></td>
+ </tr>
+ <tr>
+ <td><%= @userDataType %>, 7.2k NL-SAS Drives</td><td><%= @totaluserDataNum %></td>
+ </tr>
+ <tr>
+ <td>Data Movers</td><td><%= @dispMover %></td>
+ </tr>
+ </table><br/>
  </p>
  Values Used:<br/>
  VDI<%= @vditype %><br/>
@@ -29,9 +41,21 @@ from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi
     NumBlk<%= @numBlk %><br/>
     AdjNumBlk<%= @adjNumBlk %><br/>
     NumFlash<%= @numFlash %><br/>
-    AdditionalStorage<%= @addStorage %><br/>
     AddDrives<%= @addDrives %><br/>
     NumSAS<%= @numSAS %><br/>
     CAPReq<%= @capReq %><br/>
+    DrivesPerBlock<%= @diskPer %><br />
+    hsFlashUp=<%= @hsFlashUp %><br>
+    hsSASUp=<%= @hsSASUp %><br>
+    storProto=<%= @storProto %><br>
+     Type of VDI is <b><%= @vditype %></b><br />
+ Maximum Concurrent Desktops <%= @maxConCurr %><br />
+ Number of Customer IOps <%= @custIO %><br />
+ Number of Additional Drives needed for applications: <%= @addDrives %><br />
+ Number of VDI Blocks <%= @adjNumBlk %><br />
+ Number of Flash Drives needed <%= @numFlash %><br />
+ Number of SAS drives <%= @numSAS %><br />
+ Capacity Total Required for Linked Clones <%= @capReq %>TB
+ <br />
  </body>
  </html>
