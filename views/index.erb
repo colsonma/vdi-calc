@@ -3,17 +3,13 @@
 <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title>VNX VDI Calculator</title>
-
   <link rel="stylesheet" href="css/normalize.css" />
-  
   <link rel="stylesheet" href="css/foundation.css" />
-  
-
   <script src="js/vendor/custom.modernizr.js"></script>
 
 </head>
 <body>
-<div class="row">
+<div class="row" width=50>
   <div class="panel"><h1>Welcome to the EMC VNX VDI Calculator*</h1>
   <p>*Not official sanctioned by EMC, I did this in my spare time. If you have questions please send me a message <a href="http://twitter.com/jon_2vcps">@jon_2vcps</a>. The <a href="https://github.com/2vcps/vdi-calc">source is on github</a> Please Fork me! 
 
@@ -23,24 +19,24 @@ Remember this is just an estimation and real world experience can never be repla
 <br>
 <h1>Enter Your VDI Sizing Information</h1>
 <form method="get" action="/calc_home">
-VDI Type:<select name="vditype">
-  <option value="VMWare View">VMware View</option>
+VDI Type:<br /><select name="vditype">
+  <option value="VMware View">VMware Horizon View</option>
   <option value="Citrix PVS">Citrix PVS</option>
   <option value="Citrix MCS">Citrix MCS</option>
 </select><br /> 
-Number of Desktops <input type="text" name="nDesktops"><br/>
-Steady State IOPS <input type="text" name="ioSteady"><br/>
-Average Ram per Desktop(amount of RAM per Desktop) <input type="text" name="avgRam"><br/>
-Concurrent User Percent (between 1-100) - percentage of users that are on at once. <input type="text" name="conCurr"><br/>
-Max size in GB of Linked CLones/Write Cache Files <input type="number" name="maxLC"><br/>
-Memory Reservation Percentage (If you don't know put 50) - How much memory reservation you will use per desktop. <input type="number" name="memRes"><br/>
-Storage Protocol <select name="storProto">
+Number of Desktops <input type="text" name="nDesktops" value="10">
+Steady State IO/s / User <input type="text" name="ioSteady" value="10">
+Average RAM / Desktop (GB) <input type="text" name="avgRam" value="2">
+Concurrent Users (%) - percentage of users that are on at once. <input type="text" name="conCurr">
+Max Size Linked Clones/Write Cache Files (GB) <input type="number" name="maxLC" value="10">
+Memory Reservation (%) - Memory Reservation / Desktop. <input type="number" name="memRes" value="50">
+Storage Protocol <br /><select name="storProto">
 	<option value="NFS">NFS</option>
-	<option value="FC">Fiber Channel</option>
-	</select><br/>
-<br>User data per user(GB) <input type="number" name="userData"><br/>
-Additional Application Storage GB - non-vdi related disks for VM's <input type="number" name="addStor"><br/>
-Number of Base Images <input type="number" name="baseImg"><br/>
+	<option value="FC">Block (FC/iSCSI/FCoE)</option>
+	</select>
+<br>User data / User (GB) <input type="number" name="userData" value="10">
+Additional Application Storage (GB) - non-vdi related disks for VM's <input type="number" name="addStor" value="5">
+Number of Base Images <input type="number" name="baseImg" value="3">
 <input type="submit" value="Go">
 </form>
 </div>

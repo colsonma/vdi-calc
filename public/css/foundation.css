@@ -74,11 +74,11 @@ textarea {
   min-height: 50px; }
 
 select {
-  width: 100%; }
+  width: 60%; }
 
 /* Grid HTML Classes */
 .row {
-  width: 100%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
@@ -1597,7 +1597,7 @@ textarea {
   margin: 0 0 1em 0;
   padding: 0.5em;
   height: 2.3125em;
-  width: 100%;
+  width: 60%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1728,7 +1728,7 @@ form.custom {
     margin-bottom: 1.25em;
     margin-top: 0px;
     padding: 0px;
-    width: 100%;
+    width: 60%;
     background: white;
     background: -moz-linear-gradient(top, white 0%, #f3f3f3 100%);
     background: -webkit-linear-gradient(top, white 0%, #f3f3f3 100%);
@@ -1788,7 +1788,7 @@ form.custom {
     form.custom .custom.dropdown.open ul {
       display: block;
       z-index: 10;
-      min-width: 100%;
+      min-width: 60%;
       -moz-box-sizing: content-box;
       -webkit-box-sizing: content-box;
       box-sizing: content-box; }

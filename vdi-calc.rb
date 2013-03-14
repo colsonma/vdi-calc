@@ -18,7 +18,7 @@ get '/' do
 end
 
 get '/calc_home' do
-    @vditype=params[:vditype]
+    @=params[:vditype]
     @avgRam=params[:avgRam]
     @memRes=params[:memRes]
     @nDesktops=params[:nDesktops]
@@ -37,7 +37,7 @@ get '/calc_home' do
     @hsFlash= (@adjNumBlk * 2)/30
     @hsFlashUp= (@hsFlash > 1 ? 2 : 1) 
     @numFlash= (@adjNumBlk * 2) + @hsFlashUp
-    @numSAS= @diskPer.to_f * @adjNumBlk
+    @numSAS= (@diskPer.to_f * @adjNumBlk).to_i
     @capReq= ((@avgRam.to_f * (@memRes.to_f/100)) + @maxLC.to_f) * @nDesktops.to_f
     @hsSAS= @numSAS/30
     @hsSASUp= @hsSAS.ceil
