@@ -28,10 +28,13 @@ Remember this is just an estimation and real world experience can never be repla
  <td>Compenents</td><td>Quantity</td><td>Notes</td>
  </tr>
  <tr>
- <td><%= @vnxType %></td><td>1</td><td></td>
+ <td>VNX Model</td><td><%= @vnxType %>
  </tr>
  <tr>
- <td><%= @driveType %>GB, 15k SAS Drives</td><td><%= @numSAS %></td><td>Includes hotspares</td>
+<td>VNX Based on Data Movers</td><td><%= @adjvnxType %></td><td>Use this Model VNX if you are using NFS</td>
+</tr>
+ <tr>
+ <td><%= @driveType %>GB, 15k SAS Drives</td><td><%= @numSAS.to_i %></td><td>Includes hotspares</td>
  </tr>
  <tr>
  <td>100 GB, EFD Drives</td><td><%= @numFlash %></td><td>Includes Hotspares and Additional Drives below</td>
@@ -42,9 +45,7 @@ Remember this is just an estimation and real world experience can never be repla
  <tr>
  <td>Data Movers</td><td><%= @dispMover %></td><td>Active + One Standby</td>
  </tr>
-  <tr>
- <td>VNX Based on Data Movers</td><td><%= @adjvnxType %></td><td>Use this Model VNX if you are using NFS</td>
- </tr>
+
   <tr>
  <td>Additional FAST Cache</td><td><%= @moreFlash %></td><td>Included in Total EFD</td>
  </tr>
