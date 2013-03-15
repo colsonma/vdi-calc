@@ -24,35 +24,25 @@ VDI Type:<br /><select name="vditype">
   <option value="Citrix PVS">Citrix PVS</option>
   <option value="Citrix MCS">Citrix MCS</option>
 </select><br /> 
-<<<<<<< HEAD
-Number of Desktops <input type="text" name="nDesktops"><br/>
-Steady State IOPS <input type="text" name="ioSteady"><br/>
-Average Ram per Desktop(amount of RAM in GB per Desktop) <input type="text" name="avgRam"><br/>
-Concurrent User Percent (between 1-100) - percentage of users that are on at once. <input type="text" name="conCurr"><br/>
-Max size in GB of Linked Clones/Write Cache Files <input type="number" name="maxLC"><br/>
-Memory Reservation Percentage (If you don't know put 50) - How much memory reservation you will use per desktop. <input type="number" name="memRes"><br/>
-Storage Protocol <select name="storProto">
-=======
 Number of Desktops <input type="text" name="nDesktops" value="10">
 Steady State IO/s / User <input type="text" name="ioSteady" value="10">
 Average RAM / Desktop (GB) <input type="text" name="avgRam" value="2">
 Concurrent Users (%) - percentage of users that are on at once. <input type="text" name="conCurr">
-Max Size Linked Clones/Write Cache Files (GB) <input type="number" name="maxLC" value="10">
-Memory Reservation (%) - Memory Reservation / Desktop. <input type="number" name="memRes" value="50">
+Max Size Linked Clones/Write Cache Files (GB) <input type="text" name="maxLC" value="10">
+Memory Reservation (%) - Memory Reservation / Desktop. <input type="text" name="memRes" value="50">
 Storage Protocol <br /><select name="storProto">
->>>>>>> dcc332bacc5b63e802108ee187079e8c6353d8a5
 	<option value="NFS">NFS</option>
 	<option value="FC">Block (FC/iSCSI/FCoE)</option>
 	</select>
-<br>User data / User (GB) <input type="number" name="userData" value="10">
-Additional Application Storage (GB) - non-vdi related disks for VM's <input type="number" name="addStor" value="5">
-Number of Base Images <input type="number" name="baseImg" value="3">
+<br>User data / User (GB) <input type="text" name="userData" value="10">
+Additional Application Storage (GB) - non-vdi related disks for VM's <input type="text" name="addStor" value="5">
+Number of Base Images <input type="text" name="baseImg" value="3">
 <input type="submit" value="Go">
 </form>
 </div>
 </div>
 <script>
-  document.write('<script src=' +
+  document.write('<script src=' + 
   ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +'.js><\/script>')
   </script>
   <script src="js/foundation/foundation.js"></script>
