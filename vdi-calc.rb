@@ -62,6 +62,7 @@ get '/calc_home' do
     @userDataNum=(@userData.to_i == 0 ? 0 : @userDataNum)
     @userDataHS = (@userDataNum.to_f/30).ceil
     @totaluserDataNum= @userDataNum + @userDataHS
+    @totalDriveCount= @numSAS + @numFlash + @totaluserDataNum
     @vnxType= (@nDesktops.to_i < 1501 ? "VNX5300" : "VNX5500")
     @vnxType= (@nDesktops.to_i > 3000 ? "VNX5700" : @vnxType)
     @vnxType= (@nDesktops.to_i > 4500 ? "VNX7500" : @vnxType)
@@ -71,6 +72,11 @@ get '/calc_home' do
     @adjvnxType=(@adjMover.to_i == 4 ? "VNX5700" : @adjvnxType)
     @adjvnxType=(@adjMover.to_i > 4 ? "VNX7500" : @adjvnxType)
     @adjvnxType=(@storProto == "NFS" ? @adjvnxType : "None Needed, FC Selected")
+    @maxDrives=(@adjvnxType == "VNX5300" ? 125 : 250)
+    @maxDrives=(@adjvnxType == "VNX5500" ? 250 : @maxDrives)
+    @maxDrives=(@adjvnxType == "VNX5700" ? 500 : @maxDrives)
+    @maxDrives=(@adjvnxType == "VNX7500" ? 1000 : @maxDrives)
+    @adjvnxType=(@totalDriveCount > @maxDrives ? "Error, Total Drives exceeds suggested array Type's maximum" : @adjvnxType)    
     @moreFlash=(@nDesktops.to_i > 1000 && @vnxType == "VNX5300" ? 2 : "None")
     @baseFlashhelp=@adjNumBlk.to_i * 2
     @baseFlash=(@baseImg.to_i < 8 ? "None" : @baseFlashhelp)
