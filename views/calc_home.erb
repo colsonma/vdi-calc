@@ -16,7 +16,7 @@
 <div class="row">
   <div class="panel">
 <h1>Results VNX Calculator*</h1>
-  <p>*Not official sanctioned by EMC, I did this in my spare time. If you have questions please send me a message <a href="http://twitter.com/jon_2vcps">@jon_2vcps</a>. The <a href="https://github.com/2vcps/vdi-calc">source is on github</a> Please Fork me! 
+  <p>*Not official sanctioned by EMC, I did this in my spare time. If you have questions please send me a message <a href="http://twitter.com/jon_2vcps">@jon_2vcps</a>. The <a href="https://github.com/2vcps/vdi-calc">source is on github</a> 
 
 <p>This calculator attempts to estimate the EMC VNX storage needed for VMware View, Citrix PVS and MCS environments. It is based on the math
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a>
@@ -40,7 +40,7 @@ Remember this is just an estimation and real world experience can never be repla
  <td>100 GB, EFD Drives</td><td><%= @numFlash %></td><td>Includes Hotspares and Additional Drives below</td>
  </tr>
  <tr>
- <td><%= @userDataType %>, 7.2k NL-SAS Drives</td><td><%= @totaluserDataNum %></td><td>Include Hotspares</td>
+ <td><%= @userDataType %>, User Data Drives (900GB=10kSAS, 1TB+ = NL-SAS)</td><td><%= @totaluserDataNum %></td><td>Include Hotspares</td>
  </tr>
  <tr>
  <td>Data Movers</td><td><%= @dispMover %></td><td>Active + One Standby</td>
