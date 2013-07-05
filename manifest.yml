@@ -1,7 +1,7 @@
 ---
 applications:
   .:
-    name: vdi-calc
+    name: vdi-dev
     framework:
       name: sinatra
       info:

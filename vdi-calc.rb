@@ -11,7 +11,9 @@ maxDM_5300 = 2
 maxDM_5500 = 3
 maxDM_5700 = 4
 maxDM_7500 = 8
-
+max1rg_1TB = 9940
+max1rg_2TB = 19880
+max1rg_3TB = 29820
 
 get '/' do
 	erb :index
@@ -30,6 +32,7 @@ get '/calc_home' do
     @adjuserData= @userData.to_i * @nDesktops.to_i 
     @addStor=params[:addStor]
     @storProto=params[:storProto]
+    @userDataType=params[:userDataType]
     @diskPer=(@vditype == "Citrix PVS" ? "16" : "15")
     @maxConCurr = @nDesktops.to_f * (@conCurr.to_f/100)
     @numBlk= @custIO / ioPerBlock
@@ -46,9 +49,12 @@ get '/calc_home' do
     @dMover= @custIO/12300 + 1
     @adjMover= @dMover.ceil
     @dispMover= (@storProto == "NFS" ? @adjMover : "None")
-    @userDataType=(@adjuserData.to_i <= 10000 ? "1TB" : "2TB")
-    @userDataType=(@adjuserData.to_i >= 30000 ? "3TB" : @userDataType)
-    @userDataNum=@adjNumBlk * 16
+    #@userDataType=(@adjuserData.to_i <= 9940 ? "1TB" : "2TB")
+    #@userDataType=(@adjuserData.to_i >= 29820 ? "3TB" : @userDataType)
+    @userDTnum=(@userDataType == "1TB" ? 1024 : 2048)
+    @userDTnum=(@userDataType== "3TB" ? 3072 : @userDTnum)
+    @numuserRG= (@adjuserData.to_f / (@userDTnum * 14 * 0.71)).ceil
+    @userDataNum= 16 * @numuserRG
     @userDataNum=(@userData.to_i == 0 ? 0 : @userDataNum)
     @userDataHS = (@userDataNum.to_f/30).ceil
     @totaluserDataNum= @userDataNum + @userDataHS
