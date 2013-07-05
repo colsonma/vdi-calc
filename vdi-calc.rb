@@ -76,7 +76,10 @@ get '/calc_home' do
     @maxDrives=(@adjvnxType == "VNX5500" ? 250 : @maxDrives)
     @maxDrives=(@adjvnxType == "VNX5700" ? 500 : @maxDrives)
     @maxDrives=(@adjvnxType == "VNX7500" ? 1000 : @maxDrives)
-    @adjvnxType=(@totalDriveCount > @maxDrives ? "Error, Total Drives exceeds suggested array Type's maximum" : @adjvnxType)    
+    @adjvnxType= (@totalDriveCount <= 125 ? @adjvnxType : "VNX5500" )
+    @adjvnxType= (@totalDriveCount >= 250 ? "VNX5700" : @adjvnxType)
+    @adjvnxType=(@totalDriveCount >= 500 ? "VNX7500" : @adjvnxType)
+    @adjvnxType=(@totalDriveCount > 1000 ? "Error, Total Drives exceeds suggested array Type's maximum" : @adjvnxType)    
     @moreFlash=(@nDesktops.to_i > 1000 && @vnxType == "VNX5300" ? 2 : "None")
     @baseFlashhelp=@adjNumBlk.to_i * 2
     @baseFlash=(@baseImg.to_i < 8 ? "None" : @baseFlashhelp)

@@ -16,7 +16,7 @@
 <div class="row">
   <div class="panel">
 <h1>Results VNX Calculator*</h1>
-  <p>*Not official sanctioned by EMC, I did this in my spare time. If you have questions please send me a message <a href="http://twitter.com/jon_2vcps">@jon_2vcps</a>. The <a href="https://github.com/2vcps/vdi-calc">source is on github</a> 
+  <p><b>*Not official sanctioned by EMC, I did this in my spare time.</b> If you have questions please send me a message <a href="http://twitter.com/jon_2vcps">@jon_2vcps</a>. The <a href="https://github.com/2vcps/vdi-calc">source is on github</a> 
 
 <p>This calculator attempts to estimate the EMC VNX storage needed for VMware View, Citrix PVS and MCS environments. It is based on the math
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a>
@@ -28,10 +28,10 @@ Remember this is just an estimation and real world experience can never be repla
  <td>Compenents</td><td>Quantity</td><td>Notes</td>
  </tr>
  <tr>
- <td>VNX Model</td><td><%= @vnxType %>
+ <td>VNX Model</td><td><%= @vnxType %></td><td>This is based on Desktops</td>
  </tr>
  <tr>
-<td>VNX Based on Data Movers</td><td><%= @adjvnxType %></td><td>Use this Model VNX if you are using NFS</td>
+<td>VNX Based on Data Movers and Drive Count</td><td><%= @adjvnxType %></td><td>Use this Model VNX if you are using NFS</td>
 </tr>
  <tr>
  <td><%= @driveType %>GB, 15k SAS Drives</td><td><%= @numSAS.to_i %></td><td>Includes hotspares</td>

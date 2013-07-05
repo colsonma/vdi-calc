@@ -11,7 +11,7 @@
 <body>
 <div class="row" width=50>
   <div class="panel"><h1>Welcome to the EMC VNX VDI Calculator*</h1>
-  <p>*Not official sanctioned by EMC, I did this in my spare time. If you have questions please send me a message <a href="http://twitter.com/jon_2vcps">@jon_2vcps</a>. The <a href="https://github.com/2vcps/vdi-calc">source is on github</a> Please contribute fixes if you would like!
+  <p><b>*Not official sanctioned by EMC, I did this in my spare time.</b> If you have questions please send me a message <a href="http://twitter.com/jon_2vcps">@jon_2vcps</a>. The <a href="https://github.com/2vcps/vdi-calc">source is on github</a> Please contribute fixes if you would like!
 
 <p>This calculator attempts to estimate the EMC storage needed for VMware View, Citrix PVS and MCS environments. It is based on the math
 from this <a href=http://www.emc.com/collateral/software/white-papers/h11096-vdi-sizing-wp.pdf>whitepaper.</a> 
@@ -33,13 +33,13 @@ Memory Reservation (%) - Memory Reservation / Desktop. <input type="text" name="
 Storage Protocol <br /><select name="storProto">
 	<option value="NFS">NFS</option>
 	<option value="FC">Block (FC/iSCSI/FCoE)</option>
-	</select>
-	<br>Type of drive for UserData<br /><select name="userDataType">
+	</select><br />
+	<br />Type of drive for UserData<br /><select name="userDataType">
 	  <option value="1TB">1TB NL-SAS</option>
 	  <option value="2TB">2TB NL-SAS</option>
 	  <option value="3TB">3TB NL-SAS</option>
 	  <option value="900G">900GB 10k SAS</option>
-	</select>
+	</select><br />
 <br>User data / User (GB) <input type="text" name="userData" value="10">
 Additional Application Storage (GB) - non-vdi related disks for VM's <input type="text" name="addStor" value="5">
 Number of Base Images <input type="text" name="baseImg" value="3">
