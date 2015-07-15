@@ -4,16 +4,11 @@
 import os
 import uuid
 import urlparse
-import redis
 import json
 import Tkinter as tk
 from flask import Flask
 app = Flask(__name__)
 
-
-rediscloud_service = json.loads(os.environ['VCAP_SERVICES'])['rediscloud'][0]
-credentials = rediscloud_service['credentials']
-r = redis.Redis(host=credentials['hostname'], port=credentials['port'], password=credentials['password'])
 r.set("ioPerBlock", 8200.00
       "diskOvr", 0.91
       "maxDM_5300" = 2
@@ -35,10 +30,15 @@ class calc(object):
  if IOPS == (<12300)
     Model == (5400)
     
- elif IOP == (>12300<24601)
+ elif IOPS == (>12300<24601)
     Model == (5600)
 
- elif
+ elif IOPS == (>36900<61499)
+    Model == (5800)
+    
+ elif IOPS == (>61500)
+    Model == (7600)
+    
 #get '/calc_home' do <old code from Ruby>
 #Trying Tkinter for OptionMenu 
  def select():
