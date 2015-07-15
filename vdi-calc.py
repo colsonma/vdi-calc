@@ -5,28 +5,60 @@ import os
 import uuid
 import urlparse
 import json
-import Tkinter as tk
 from flask import Flask
 app = Flask(__name__)
 
-r.set("ioPerBlock", 8200.00
-      "diskOvr", 0.91
-      "maxDM_5300" = 2
-      "maxDM_5500", 3
-      "maxDM_5700", 4
-      "maxDM_7500", 8
-      "max1rg_1TB", 9940
-      "max1rg_2TB", 19880
-      "max1rg_3TB", 29820
-      "Model", 5400, 5600, 5800, 7600)
+Array_Model = {"VNX5400", "VNX5600", "VNX5800", "VNX7600"}
+Block_Specs = {"ioPerBlock" : "8200.00",
+      "diskOvr" : "0.91",
+      "maxDM_5400" : "2",
+      "maxDM_5600" : "3",
+      "maxDM_5800" : "4",
+      "maxDM_7600" : "8",
+      "max1rg_1TB" : "9940",
+      "max1rg_2TB" : "19880",
+      "max1rg_3TB" : "29820",
+      "5400MaxUser" : "2999",
+      "5600MaxUser" : "4499",
+      "5800MaxUser" : "7499",
+      "5400BASEIOP" : "12300",
+      "5600BASEIOP" : "24600",
+      "5800BASEIOP" : "61500",
+      "5400MAXFASTCACHE" : "10",
+      "5600MAXFASTCACHE" : "20",
+      "5800MAXFASTCACHE" : "30",
+      "7600MAXFASTCACHE" : "42"}
 
+SASREQ = {"VMWView": "15", ""}
+      
+Storage_Protocols = {"NFS" : "File", "iSCSI" : "Block", "FC" : "Block", "FCoE" : "Block"}
+MemRes = ("100%")
+CapacityOverheadFactor = ("0.91")
+VDI_SW = ["Citrix_PVS", "Citrix_MCS", "VMware_Horizon"]
+#SASRAIDS order is PVS, MCS, VMware same wiht SASDriveRAID Type ZIP is used to combine and associate these
+SASRAID = ["R10(4+4)","R5(4+1)","R5(4+1)"]
+SASDrivebyRAID = ["16", "20", "15"]
+SASRAID_and_Disk = zip(SASRAID, SASDrivebyRAID)
 
-class calc(object):
- 
- def __init__(self, calc_home):
-     print "calc __init__ has calc_home", calc_home
-     self.calc_home = calc_home
- 
+SEL
+TotalDT = input('Enter total number of Desktops: ')
+SSIOP = input('Enter Steady State IOPS per Desktop: ')
+Concurrency = input('Enter Concurrency % 1-100: ')
+AveLCCap = input('Enter Average Linked-Clone Capacity in GB: ')
+AveRAMDT = input('Enter Average RAM per Destkop in GB: ')
+ProfileData = input('Enter Per User Profile Data Expectation in GB: ')
+AddStorage = input('Enter any additional stroage Required in TB: ')
+MasterImages = input('Enter the number of Master\Golden Images: ')
+
+MAX_Concurrent_DT = ("TotalDT"*"Concurrency")
+CustIOPSREQ = ("Max_Concurrent_DT"*"SSIOP")
+BuildingBlocksReq = ("CustIOPSReq"/"ioPerBlock")
+FlashDrives = ("BuildingBlockReq"*"2")
+#no clue how to get the SASDrives
+SASDrives = (SOMETHING*"BuildingBlocksReq")
+SpaceReqforDesktops = (("TotalDT"*("AveLCCap"+("AveRAMDT"*"MemRes")))/"1000")
+RecommendedSASDriveSize = ()
+
  if IOPS == (<12300)
     Model == (5400)
     
@@ -39,8 +71,6 @@ class calc(object):
  elif IOPS == (>61500)
     Model == (7600)
     
-#get '/calc_home' do <old code from Ruby>
-#Trying Tkinter for OptionMenu 
  def select():
 	sf = "values is %s" % var.get()
 	root.title(sf)
