@@ -29,7 +29,6 @@ Block_Specs = {"ioPerBlock" : "8200.00",
       "5800MAXFASTCACHE" : "30",
       "7600MAXFASTCACHE" : "42"}
 
-SASREQ = {"VMWView": "15", ""}
       
 Storage_Protocols = {"NFS" : "File", "iSCSI" : "Block", "FC" : "Block", "FCoE" : "Block"}
 MemRes = ("100%")
@@ -71,27 +70,17 @@ RecommendedSASDriveSize = ()
  elif IOPS == (>61500)
     Model == (7600)
     
- def select():
-	sf = "values is %s" % var.get()
-	root.title(sf)
-	
+
  
- def vditype=(self):
-	vt = "value is %s" % var.get()
-	Vdi.type(vt)
-
-	Vdi = tk.Tk()
-	Vdi.title("tk.VDITYPE")
-	
-	var = tk.StringVar(Vdi)
-	var.set('Citrix PVS')
-	
-	choices = ['Citrix PVS', 'Citrix MCS', 'VMware Horizon']
-	Option =tk.OptionMenu(Vdi, var, *choices)
-
-   def avgRam=(self):
-	action = raw_input("> ")
-	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     @memRes=params[:memRes]
     @nDesktops=params[:nDesktops]
     @ioSteady=params[:ioSteady]
